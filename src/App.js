@@ -1,24 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
+import Home from './components/Home';
+import Login from './components/Login';
+import { createContext, useContext } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import PrivateRoute from './components/PrivateRoute';
+import Event_Tasks from './components/Event_Tasks';
+//export const UserContext = createContext();
+
 
 function App() {
+  //const [loggedInUser,setLoggedInUser] = useContext({});
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    //<UserContext.Provider>
+      <div className="App">
+        <Router>
+          <Switch>
+            <Route path="/">
+              <Home></Home>
+            </Route>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
+            {/* <PrivateRoute path="/eventsTasks">
+              <Event_Tasks></Event_Tasks>
+            </PrivateRoute> */}
+            <Route path="/*">
+              <h2 alignItems="center">404 Error!</h2>
+              <h4>Page not Found</h4>
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+  // </UserContext.Provider>
   );
 }
 
