@@ -36,9 +36,11 @@ function App() {
             <Route path='/register'>
             <Registration></Registration>
             </Route>
-            <PrivateRoute path="/eventsTasks">
+            {/* <PrivateRoute path="/eventsTasks"> */}
+            <Route path="/eventsTasks">
               <Event_Tasks></Event_Tasks>
-            </PrivateRoute>
+              </Route>
+            {/* </PrivateRoute> */}
             <Route path='/login' >
               <Login></Login>
             </Route>
